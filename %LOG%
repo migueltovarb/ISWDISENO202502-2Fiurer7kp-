@@ -1,0 +1,15 @@
+===== Auto Test - %date% %time%
+Script running from: %SCRIPT_DIR%
+Compiling project...
+[ERROR] COMPILATION ERROR : 
+[ERROR] /C:/Users/jhonj/OneDrive/Escritorio/backend-diseño/talleres-backend/src/main/java/com/tuempresa/talleres/controller/PonenteController.java:[82,59] incompatible types: java.util.Optional<com.tuempresa.talleres.model.Evento> cannot be converted to com.tuempresa.talleres.model.Evento
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project talleres: Compilation failure
+[ERROR] /C:/Users/jhonj/OneDrive/Escritorio/backend-diseño/talleres-backend/src/main/java/com/tuempresa/talleres/controller/PonenteController.java:[82,59] incompatible types: java.util.Optional<com.tuempresa.talleres.model.Evento> cannot be converted to com.tuempresa.talleres.model.Evento
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
