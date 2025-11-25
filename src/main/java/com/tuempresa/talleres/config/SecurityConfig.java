@@ -43,10 +43,10 @@ public class SecurityConfig {
             .cors().and()
             .csrf().disable()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-            .authorizeRequests()
-            .antMatchers("/api/auth/**").permitAll()
-            .antMatchers("/api/eventos").permitAll()
-            .antMatchers("/api/ponentes").permitAll()
+            .authorizeHttpRequests()
+            .requestMatchers("/api/auth/**").permitAll()
+            .requestMatchers("/api/eventos").permitAll()
+            .requestMatchers("/api/ponentes").permitAll()
             .anyRequest().authenticated();
 
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
