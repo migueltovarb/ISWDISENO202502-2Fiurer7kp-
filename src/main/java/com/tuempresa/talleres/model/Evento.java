@@ -1,6 +1,7 @@
 package com.tuempresa.talleres.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -8,6 +9,7 @@ public class Evento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String nombre;
     private String titulo;
     private String tipo;
     private String modalidad;
@@ -15,6 +17,9 @@ public class Evento {
     private String estado;
     private float precio;
     private int capacidad;
+    private Integer capacidadMaxima;
+    private LocalDateTime fechaInicio;
+    private LocalDateTime fechaFin;
 
     @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL)
     private List<Sesion> sesiones;
@@ -45,6 +50,14 @@ public class Evento {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getTitulo() {
@@ -109,5 +122,29 @@ public class Evento {
 
     public void setSesiones(List<Sesion> sesiones) {
         this.sesiones = sesiones;
+    }
+
+    public Integer getCapacidadMaxima() {
+        return capacidadMaxima;
+    }
+
+    public void setCapacidadMaxima(Integer capacidadMaxima) {
+        this.capacidadMaxima = capacidadMaxima;
+    }
+
+    public LocalDateTime getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(LocalDateTime fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public LocalDateTime getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDateTime fechaFin) {
+        this.fechaFin = fechaFin;
     }
 }

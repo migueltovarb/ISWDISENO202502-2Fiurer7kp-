@@ -29,7 +29,7 @@ public class AuthService {
         try {
             Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                    loginRequest.getEmail(),
+                    loginRequest.getUsername(),
                     loginRequest.getPassword()
                 )
             );
@@ -63,7 +63,7 @@ public class AuthService {
             LoginRequest loginRequest = new LoginRequest(registerRequest.getEmail(), registerRequest.getPassword());
             return authenticate(loginRequest);
 
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             return new LoginResponse(null, "Error en registro: " + e.getMessage(), false);
         }
     }

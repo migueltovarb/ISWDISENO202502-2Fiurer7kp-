@@ -31,11 +31,11 @@ public class PagoService {
     }
     
     public List<Pago> findByInscriptionId(Long inscriptionId) {
-        return repo.findByInscriptionId(inscriptionId);
+        return repo.findByInscripcionId(inscriptionId);
     }
     
     public List<Pago> findByParticipanteId(Long participanteId) {
-        return repo.findByParticipanteId(participanteId);
+        return repo.findByInscripcionParticipanteId(participanteId);
     }
     
     public List<Pago> findByEstado(String estado) {

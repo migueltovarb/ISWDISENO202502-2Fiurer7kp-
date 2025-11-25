@@ -10,11 +10,11 @@ import java.util.Optional;
 @Repository
 public interface PonenteRepository extends JpaRepository<Ponente, Long> {
     
-    Optional<Participante> findByEmail(String email);
+    Optional<Ponente> findByEmail(String email);
     
-    List<Participante> findByNombreContainingIgnoreCase(String nombre);
+    List<Ponente> findByNombreContainingIgnoreCase(String nombre);
     
-    List<Participante> findByEspecialidad(String especialidad);
+    List<Ponente> findByEspecialidad(String especialidad);
     
     boolean existsByEmail(String email);
 }

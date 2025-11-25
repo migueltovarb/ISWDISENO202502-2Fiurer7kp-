@@ -9,6 +9,8 @@ public class Material {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo;
+    private String nombre;
+    private String tipo;
     private String url;
     private Date vigenciaHasta;
 
@@ -30,6 +32,22 @@ public class Material {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getUrl() {
