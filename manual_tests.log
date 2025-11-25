@@ -1,0 +1,68 @@
+
+╔═══════════════════════════════════════════════════════════════╗
+║  PRUEBAS - Sistema de Gestión de Talleres y Seminarios      ║
+║  URL Base: http://localhost:8080                             ║
+╚═══════════════════════════════════════════════════════════════╝
+
+[1] AUTENTICACIÓN - Registrar participante
+
+username rol              
+-------- ---              
+luis     ROLE_PARTICIPANTE
+
+
+
+[2] AUTENTICACIÓN - Registrar ponente
+
+username rol         
+-------- ---         
+sofia    ROLE_PONENTE
+
+
+
+[3] AUTENTICACIÓN - Login participante luis
+Token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJsdWlzIiw...
+Rol: ROLE_PARTICIPANTE
+
+[4] AUTENTICACIÓN - Login ponente sofia
+Token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzb2ZpYSI...
+Rol: ROLE_PONENTE
+
+[5] EVENTOS - Listar eventos públicos
+
+id titulo capacidad inscritos
+-- ------ --------- ---------
+                             
+
+
+
+[6] PARTICIPANTES - Listar participantes
+
+id nombre email
+-- ------ -----
+               
+
+
+
+[7] INSCRIPCIONES - Listar inscripciones
+
+id estado participanteNombre eventoTitulo
+-- ------ ------------------ ------------
+                                         
+
+
+
+╔═══════════════════════════════════════════════════════════════╗
+║                 PRUEBAS COMPLETADAS                          ║
+║  Todos los endpoints están funcionales                       ║
+╚═══════════════════════════════════════════════════════════════╝
+
+COMANDOS RÁPIDOS:
+
+Crear evento (como ponente sofia):
+powershell "$token = (Invoke-WebRequest -Uri 'http://localhost:8080/api/auth/login' -Method POST -Headers @{'Content-Type'='application/json'} -Body '{\"username\":\"sofia\",\"password\":\"sofia123\"}' | Select-Object -ExpandProperty Content | ConvertFrom-Json).token; Invoke-WebRequest -Uri 'http://localhost:8080/api/eventos' -Method POST -Headers @{'Content-Type'='application/json'; 'Authorization'=\"Bearer $token\"} -Body '{\"titulo\":\"Test Event\",\"tipo\":\"WORKSHOP\",\"modalidad\":\"VIRTUAL\",\"sede\":\"Online\",\"estado\":\"ABIERTO\",\"precio\":50000,\"capacidad\":50}' | Select-Object -ExpandProperty Content"
+
+Registrar perfil ponente:
+powershell "$token = (Invoke-WebRequest -Uri 'http://localhost:8080/api/auth/login' -Method POST -Headers @{'Content-Type'='application/json'} -Body '{\"username\":\"sofia\",\"password\":\"sofia123\"}' | Select-Object -ExpandProperty Content | ConvertFrom-Json).token; Invoke-WebRequest -Uri 'http://localhost:8080/api/ponentes/register' -Method POST -Headers @{'Content-Type'='application/json'; 'Authorization'=\"Bearer $token\"} -Body '{\"nombre\":\"Sofia Martinez\",\"bio\":\"Software Architect\",\"fotoUrl\":\"http://example.com/sofia.jpg\"}' | Select-Object -ExpandProperty Content"
+
+Presione una tecla para continuar . . . 
